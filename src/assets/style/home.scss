@@ -1,0 +1,285 @@
+@import "./font.scss";
+body {
+  font-family: "SourceHanSansCN", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", Helvetica, "Segoe UI",
+    "Arial", "Roboto", "PingFang SC", "miui", "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+  background: #000;
+  -webkit-user-select: none; /*webkit浏览器*/
+  user-select: none;
+}
+.loading {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  pointer-events: none;
+  z-index: 99;
+  &-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-family: "D-DIN", Arial, sans-serif;
+    letter-spacing: 10px;
+    span {
+      font-size: 2vw;
+      animation: blurAni 1.5s calc(var(--index) / 5 * 1s) alternate infinite;
+    }
+  }
+  &-progress {
+    font-size: 2vw;
+    color: #fff;
+    font-family: "D-DIN", Arial, sans-serif;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center;
+    margin-top: -3vw;
+    .unit {
+      padding-left: 10px;
+      font-size: 1vw;
+    }
+  }
+}
+@keyframes blurAni {
+  to {
+    filter: blur(3px);
+  }
+}
+
+.large-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #050f33;
+  margin: 0 auto;
+  font-size: 14px;
+  .map {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+
+  &-wrap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+    pointer-events: none;
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      opacity: 0.5;
+      background: url("@/assets/images/bg.png") no-repeat;
+      background-size: cover;
+    }
+    .top-count-card {
+      position: absolute;
+      left: 560px;
+      right: 560px;
+      top: 130px;
+      display: flex;
+      justify-content: center;
+      z-index: 9;
+      display: flex;
+      & > div {
+        padding: 0 50px;
+      }
+    }
+    .left-wrap {
+      position: absolute;
+      z-index: 4;
+      width: 398px;
+      left: 32px;
+      top: 126px;
+      bottom: 50px;
+      perspective: 500px;
+      perspective-origin: 50% 50%;
+      &-3d {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-between;
+        transform: translate3d(0px, 0px, 0px) scaleX(1) scaleY(1) rotateX(0deg) rotateY(6deg) rotateZ(0deg) skewX(0deg)
+          skewY(0deg);
+        z-index: 4;
+        .left-card {
+          flex: 1;
+          margin-bottom: 12px;
+        }
+      }
+    }
+
+    .right-wrap {
+      position: absolute;
+      z-index: 4;
+      width: 398px;
+      right: 32px;
+      top: 126px;
+      bottom: 50px;
+      perspective: 800px;
+      perspective-origin: 50% 50%;
+      &-3d {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-between;
+        transform: translate3d(0px, 0px, 0px) scaleX(1) scaleY(1) rotateX(0deg) rotateY(-6deg) rotateZ(0deg) skewX(0deg)
+          skewY(0deg);
+        .right-card {
+          flex: 1;
+          margin-bottom: 12px;
+        }
+      }
+    }
+    .bottom-tray {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      z-index: 3;
+      margin-left: -960px;
+      width: 1920px;
+      height: 90px;
+      box-sizing: border-box;
+      padding-top: 20px;
+      display: flex;
+      justify-content: center;
+      background: url("~@/assets/images/bottom-menu-bg.png") no-repeat;
+      background-size: contain;
+      &-arrow {
+        display: flex;
+        align-items: center;
+        height: 30px;
+        &.is-reverse {
+          transform: scaleX(-1);
+        }
+        img {
+          animation: arrowAnimate 2s ease-in-out infinite;
+        }
+        img:last-child {
+          animation: arrowAnimate2 2s ease-in-out infinite;
+        }
+      }
+      .bottom-menu {
+        display: flex;
+        padding: 0 20px;
+        &-item {
+          width: 100px;
+          height: 32px;
+          background: url("~@/assets/images/bottom-menu-btn.png") no-repeat;
+          background-size: 100%;
+          font-size: 15px;
+
+          letter-spacing: 1.6px;
+          text-align: center;
+          line-height: 30px;
+          cursor: pointer;
+          pointer-events: all;
+          span {
+            display: block;
+            width: 100px;
+            height: 32px;
+            font-weight: 700;
+            background: -webkit-linear-gradient(rgba(117, 232, 255, 1), rgba(255, 255, 255, 1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+          &:hover,
+          &.is-active {
+            background: url("~@/assets/images/bottom-menu-btn-hover.png") no-repeat;
+            background-size: 100%;
+          }
+        }
+      }
+    }
+  }
+  &-left-zsline {
+    position: absolute;
+    left: 0;
+    z-index: 3;
+    top: 50%;
+    margin-top: -540px;
+    width: 120px;
+    height: 1080px;
+    background: url("~@/assets/images/left-kuang.svg") no-repeat;
+    background-size: contain;
+    animation: bkAnimate 3s infinite;
+  }
+  &-right-zsline {
+    position: absolute;
+    right: 0;
+    z-index: 3;
+    top: 50%;
+    margin-top: -540px;
+    width: 120px;
+    height: 1080px;
+    background: url("~@/assets/images/right-kuang.svg") no-repeat;
+    background-size: contain;
+    animation: bkAnimate 3s infinite;
+  }
+}
+
+@keyframes bkAnimate {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes arrowAnimate {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes arrowAnimate2 {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(90%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+// 360旋转
+@keyframes rotate360Animate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
