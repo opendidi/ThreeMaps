@@ -4,15 +4,11 @@
  * @Author: htang
  * @Date: 2024-07-15 16:33:33
  * @LastEditors: htang
- * @LastEditTime: 2024-07-15 16:39:20
+ * @LastEditTime: 2024-08-24 14:46:45
 -->
-# Vue 3 + Vite
+# 🔥Vue3、Three.js开发数据可视化大屏
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+[![AUR](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://github.com/opendidi/ThreeMaps/blob/main/LICENSE)
 
-## Recommended IDE Setup
-
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-项目可视化编辑页面
-> <img width="100%" align="center" src="./images/1721032698514.jpg">
+## 项目预览图
+<img width="100%" align="center" src="./images/1721032698514.jpg">
