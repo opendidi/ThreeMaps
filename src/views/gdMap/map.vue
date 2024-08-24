@@ -4,31 +4,31 @@
   </div>
 </template>
 <script setup>
-import { onMounted, shallowRef, onBeforeUnmount } from "vue"
-import { World } from "./map.js"
-import emitter from "@/utils/emitter"
-const canvasMap = shallowRef(null)
+import { onMounted, shallowRef, onBeforeUnmount } from "vue";
+import { World } from "./map.js";
+import emitter from "@/utils/emitter";
+const canvasMap = shallowRef(null);
 onMounted(() => {
-  emitter.$on("loadMap", loadMap)
-})
+  emitter.$on("loadMap", loadMap);
+});
 onBeforeUnmount(() => {
-  canvasMap.value && canvasMap.value.destroy()
-  emitter.$off("loadMap", loadMap)
-})
+  canvasMap.value && canvasMap.value.destroy();
+  emitter.$off("loadMap", loadMap);
+});
 function loadMap(assets) {
-  canvasMap.value = new World(document.getElementById("canvasMap"), assets)
-  canvasMap.value.time.pause()
+  canvasMap.value = new World(document.getElementById("canvasMap"), assets);
+  canvasMap.value.time.pause();
 }
 async function play() {
-  canvasMap.value.time.resume()
-  canvasMap.value.animateTl.timeScale(1) // 设置播放速度正常
-  canvasMap.value.animateTl.play()
+  canvasMap.value.time.resume();
+  canvasMap.value.animateTl.timeScale(1); // 设置播放速度正常
+  canvasMap.value.animateTl.play();
 }
 defineExpose({
   loadMap,
   play,
   canvasMap,
-})
+});
 </script>
 
 <style lang="scss">
@@ -204,7 +204,8 @@ defineExpose({
     font-size: 36px;
     font-weight: bold;
     letter-spacing: 4.5px;
-    -webkit-box-reflect: below 0 -webkit-linear-gradient(transparent, transparent 20%, rgba(255, 255, 255, 0.3));
+    -webkit-box-reflect: below 0 -webkit-linear-gradient(transparent, transparent
+          20%, rgba(255, 255, 255, 0.3));
     .other-label {
       display: flex;
       flex-direction: column;
@@ -220,10 +221,10 @@ defineExpose({
     }
   }
   .decoration-label {
-    &.reflect {
-      -webkit-box-reflect: below 0 -webkit-linear-gradient(transparent, transparent 20%, rgba(255, 255, 255, 0.3));
-    }
-    padding-bottom: 10px;
+    // &.reflect {
+    //   -webkit-box-reflect: below 0 -webkit-linear-gradient(transparent, transparent 20%, rgba(255, 255, 255, 0.3));
+    // }
+    // padding-bottom: 10px;
     .label-icon {
       display: block;
       width: 40px;
